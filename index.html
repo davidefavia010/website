@@ -611,6 +611,40 @@ doppiatore insegnante dizione, speaker insegnante dizione, Davide Favia dizione,
   /* reveal */
   .reveal { opacity: 0; transform: translateY(32px); transition: opacity .7s ease, transform .7s ease; }
   .reveal.in-view { opacity: 1; transform: translateY(0); }
+  .nav-hamburger {
+  display: none;
+  flex-direction: column; gap: 5px;
+  cursor: pointer; padding: .3rem;
+}
+.nav-hamburger span {
+  width: 24px; height: 2px;
+  background: var(--gold); display: block;
+  transition: all .3s;
+}
+.nav-mobile {
+  display: none;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(26,26,46,0.98);
+  z-index: 200;
+  flex-direction: column; align-items: center; justify-content: center;
+  gap: 2.5rem;
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+  color: var(--cream); text-decoration: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 300;
+  transition: color .25s;
+}
+.nav-mobile a:hover { color: var(--gold); }
+.nav-mobile-close {
+  position: absolute; top: 1.5rem; right: 6%;
+  font-size: 2rem; color: var(--cream); cursor: pointer;
+  background: none; border: none;
+}
+@media (max-width: 640px) {
+  .nav-hamburger { display: flex; }
+}
 </style>
 </head>
 <body>
@@ -626,6 +660,19 @@ doppiatore insegnante dizione, speaker insegnante dizione, Davide Favia dizione,
     <li><a href="#contatti">Contatti</a></li>
     <li><a href="#cta" class="nav-cta">Lezione Gratuita</a></li>
   </ul>
+  <div class="nav-hamburger" id="hamburger">
+  <span></span><span></span><span></span>
+</div>
+
+<div class="nav-mobile" id="navMobile">
+  <button class="nav-mobile-close" id="navClose">✕</button>
+  <a href="#chisono" class="nav-mobile-link">Chi sono</a>
+  <a href="#servizi" class="nav-mobile-link">Servizi</a>
+  <a href="#prezzi" class="nav-mobile-link">Prezzi</a>
+  <a href="#testimonial" class="nav-mobile-link">Recensioni</a>
+  <a href="#contatti" class="nav-mobile-link">Contatti</a>
+  <a href="#cta" class="btn-primary">Lezione Gratuita</a>
+</div>
 </nav>
 
 <!-- HERO -->
@@ -1098,6 +1145,14 @@ doppiatore insegnante dizione, speaker insegnante dizione, Davide Favia dizione,
       }
     });
   }
+  const hamburger = document.getElementById('hamburger');
+const navMobile = document.getElementById('navMobile');
+const navClose = document.getElementById('navClose');
+hamburger.addEventListener('click', () => navMobile.classList.add('open'));
+navClose.addEventListener('click', () => navMobile.classList.remove('open'));
+document.querySelectorAll('.nav-mobile-link').forEach(link => {
+  link.addEventListener('click', () => navMobile.classList.remove('open'));
+});
 </script>
 </body>
 </html>
