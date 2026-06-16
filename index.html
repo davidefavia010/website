@@ -589,6 +589,13 @@ doppiatore insegnante dizione, speaker insegnante dizione, Davide Favia dizione,
     .services-wrap { grid-template-columns: 1fr; }
     .hero-stats { display: none; }
     .metodo-steps { grid-template-columns: 1fr 1fr; }
+    .chisono-wrap { grid-template-columns: 1fr; gap: 2rem; }
+    .chisono-left { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; }
+    .chisono-photo-wrap { margin-bottom: 0; }
+  }
+  @media (max-width: 540px) {
+  .chisono-left { grid-template-columns: 1fr; }
+  .chisono-photo { aspect-ratio: 4/3; }
   }
   @media (max-width: 640px) {
     nav { padding: 1rem 4%; }
