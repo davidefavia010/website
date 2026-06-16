@@ -262,12 +262,12 @@ doppiatore insegnante dizione, speaker insegnante dizione, Davide Favia dizione,
     border-top: 3px solid var(--gold);
   }
   .chisono-photo {
-    width: 100%; aspect-ratio: 3/4;
-    object-fit: cover; object-position: center 15%;
-    display: block;
-    filter: grayscale(10%);
-    transition: filter .4s;
-  }
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(10%);
+  transition: filter .4s;
+}
   .chisono-photo:hover { filter: grayscale(0%); }
   .chisono-right p {
     font-size: .97rem; color: var(--text-body); margin-bottom: 1.4rem; line-height: 1.9;
@@ -595,7 +595,6 @@ doppiatore insegnante dizione, speaker insegnante dizione, Davide Favia dizione,
   }
   @media (max-width: 540px) {
   .chisono-left { grid-template-columns: 1fr; }
-  .chisono-photo { aspect-ratio: 4/3; }
   }
   @media (max-width: 640px) {
     nav { padding: 1rem 4%; }
